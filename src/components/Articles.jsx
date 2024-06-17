@@ -10,7 +10,6 @@ const Articles = () => {
 useEffect(() => {
     setIsLoading(true)
     getArticles().then(({articles}) => {
-        console.log(articles)
         setArticles(articles)
         setIsLoading(false)
 }) }, [])
