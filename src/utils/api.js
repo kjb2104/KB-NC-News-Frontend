@@ -16,6 +16,13 @@ const fetchArticleById = (article_id) => {
         return res.data.article
     })
 }
+const fetchCommentsForArticle =(article_id) =>{
+    return axios.get(`https://newsbase.onrender.com/api/articles/${article_id}/comments`).then((res) => {
+      
+        return res.data.comments
+    })
+
+}
 
 const getUsers = () =>{
     return axios.get('https://newsbase.onrender.com/api/users').then((res) => {
@@ -31,4 +38,4 @@ const getTopics = () =>{
 }
 
 
-export { getArticles, getUsers, getTopics, fetchArticleById }
+export { getArticles, getUsers, getTopics, fetchArticleById, fetchCommentsForArticle }
