@@ -24,12 +24,13 @@ import {useEffect, useState} from "react"
         <ol className="User_list">
             {users.map((user) => (
                 <li key={user.username}>
-                    <h1>Name: {user.name}</h1>
+                    <h1>{user.username}</h1>
+                    <p>Name: {user.name}</p>
                     </li>
             ))}
         </ol>
     )
 
     }
-    
+
 export default Users

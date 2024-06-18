@@ -1,5 +1,6 @@
 import Users from './users'
 import Articles from './Articles'
+import Topics from './topics'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 
