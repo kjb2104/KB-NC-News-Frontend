@@ -37,5 +37,18 @@ const getTopics = () =>{
     })
 }
 
+const sendVoteByArticleId = (article_id) => {
+    const patchBody = {inc_votes: 1}
+    return axios.patch(`https://newsbase.onrender.com/api/articles/${article_id}`, patchBody).then((res) => {
+return res
+    })
+}
+const removeVoteByArticleId = (article_id) => {
+    const patchBody = {inc_votes: -1}
+    return axios.patch(`https://newsbase.onrender.com/api/articles/${article_id}`, patchBody).then((res) => {
+       
+return res
+    })
+}
 
-export { getArticles, getUsers, getTopics, fetchArticleById, fetchCommentsForArticle }
+export { getArticles, getUsers, getTopics, fetchArticleById, fetchCommentsForArticle, sendVoteByArticleId, removeVoteByArticleId }
