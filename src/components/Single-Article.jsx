@@ -1,6 +1,7 @@
 import { useParams } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { fetchArticleById } from '../utils/api';
+import styles from '../SingleArticle.module.css'
 
 const SingleArticle = () => {
 
@@ -16,8 +17,8 @@ const SingleArticle = () => {
   }, [article_id]);
 
   return (
-    <div>
-        <header>Article number {article_id}</header>
+    <div className={styles.main}>
+        <header className={styles.header}>Article number {article_id}</header>
       <h2>{article.title}</h2>
       <p>Topic: {article.topic}</p>
                 <p>Author: {article.author}</p>

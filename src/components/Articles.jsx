@@ -23,26 +23,19 @@ if(isLoading){
     return <p className="Loading">Loading...</p>
 }
 
-function handleClick(){
 
-return (<h1>article</h1>)
-
-}
 
 return (
-    <ol className={styles.Article_list}>
+    <ul className={styles.Article_list}>
         {articles.map((article) => (
             <li key={article.article_id}>
-                <h1>{article.title}</h1>
-                <button onClick={handleClick}>Read Article</button>
+                <h1>Click to Read:</h1>
+                <Link to={"/articles/"+article.article_id}><p>{article.title}</p></Link>
                 <p>Topic: {article.topic}</p>
                 <p>Author: {article.author}</p>
-                <p>{article.body}</p>
-                <img src={article.article_img_url}/>
-                <p>Comments: {article.comment_count}</p>
                 </li>
 ))}
-    </ol>
+    </ul>
 )
 }
 
