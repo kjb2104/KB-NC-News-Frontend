@@ -1,12 +1,19 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import CommentAdder from "./comment-adder";
 import {
   fetchArticleById,
   fetchCommentsForArticle,
   sendVoteByArticleId,
-  removeVoteByArticleId
+  removeVoteByArticleId,
 } from "../utils/api";
 import styles from "../SingleArticle.module.css";
+
+// import { useContext } from "react";
+
+// import { UserContext } from "./UserContext";
+
+// const { user } = useContext(UserContext)
 
 const SingleArticle = (props) => {
   const [article, setArticle] = useState([]);
@@ -73,6 +80,7 @@ const SingleArticle = (props) => {
           </li>
         ))}
       </ul>
+      <CommentAdder setComments={setComments}/>
     </div>
   );
 };

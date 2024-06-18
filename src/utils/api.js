@@ -51,4 +51,11 @@ return res
     })
 }
 
-export { getArticles, getUsers, getTopics, fetchArticleById, fetchCommentsForArticle, sendVoteByArticleId, removeVoteByArticleId }
+const postCommentByArticleId = (article_id) => {
+    const postBody = {}
+    return axios.patch(`https://newsbase.onrender.com/api/articles/${article_id}`, postBody).then((res) => {
+        return res
+    })
+}
+
+export { getArticles, getUsers, getTopics, fetchArticleById, fetchCommentsForArticle, sendVoteByArticleId, removeVoteByArticleId, postCommentByArticleId}
