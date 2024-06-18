@@ -1,0 +1,18 @@
+
+.Article_list{
+
+    color: hotpink;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: min-content auto auto;
+};
+
+.header{
+
+    color: blueviolet;
+}
+
+
+
+
+

@@ -1,6 +1,6 @@
 import {useEffect, useState} from "react"
 import  { getArticles } from "../utils/api";
-
+import styles from '../Articles.module.css'
 
 const Articles = () => {
 
@@ -10,7 +10,6 @@ const Articles = () => {
 useEffect(() => {
     setIsLoading(true)
     getArticles().then(({articles}) => {
-        console.log(articles)
         setArticles(articles)
         setIsLoading(false)
 }) }, [])
@@ -21,10 +20,10 @@ if(isLoading){
 }
 
 return (
-    <ol className="Article_list">
+    <ol className={styles.Article_list}>
         {articles.map((article) => (
             <li key={article.article_id}>
-                <h1>{article.title}</h1>
+                <h1 className={styles.header}>{article.title}</h1>
                 <p>Topic: {article.topic}</p>
                 <p>Author: {article.author}</p>
                 <p>{article.body}</p>
