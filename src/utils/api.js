@@ -9,6 +9,14 @@ const getArticles = () => {
     })
 }
 
+const fetchArticleById = (article_id) => {
+
+    return axios.get(`https://newsbase.onrender.com/api/articles/${article_id}`).then((res) => {
+      
+        return res.data.article
+    })
+}
+
 const getUsers = () =>{
     return axios.get('https://newsbase.onrender.com/api/users').then((res) => {
         
@@ -23,4 +31,4 @@ const getTopics = () =>{
 }
 
 
-export { getArticles, getUsers, getTopics }
+export { getArticles, getUsers, getTopics, fetchArticleById }
