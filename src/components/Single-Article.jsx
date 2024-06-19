@@ -69,6 +69,11 @@ let comment_id = Number(text.slice(-3))
 
 
     removeComment(comment_id).then((result) =>{ if (result) { 
+      const filteredComments =  comments.filter((commentToDelete) => { 
+        return commentToDelete.comment_id !== comment_id
+      }); 
+  
+      setComments([...filteredComments])
       alert("Succesfully deleted comment :)");
     } 
   }).catch((err) => { 
@@ -76,13 +81,6 @@ let comment_id = Number(text.slice(-3))
   }); 
 
 
-    const filteredComments =  comments.filter((commentToDelete) => { 
-      return commentToDelete.comment_id !== comment_id
-    }); 
-
-    setComments([...filteredComments])
-
-    
   }
 
   return (

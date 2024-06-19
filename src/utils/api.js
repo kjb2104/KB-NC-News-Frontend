@@ -81,7 +81,7 @@ const removeComment = (comment_id) => {
         `https://newsbase.onrender.com/api/comments/${comment_id}`,
       )
       .then((res) => {
-        console.log(res)
+    
         return res;
       });
   };

@@ -23,13 +23,22 @@ const CommentAdder = ({ article_id, setComments }) => {
       created_at: date,
     };
 
-    postCommentByArticleId(article_id, body).then((newCommentFromApi) => {
+    setComments((comments) => {
+        return [body, ...comments];
+      });
+
       setNewComment("");
+    postCommentByArticleId(article_id, body).then((newCommentFromApi) => {
+
 
       setComments((comments) => {
+        comments.shift()
         return [newCommentFromApi, ...comments];
-      });
-    });
+      })
+      alert("Succesfully added comment :)")
+    }).catch((err) => {
+        console.log(err)
+    })
   };
 
   return (
@@ -41,7 +50,7 @@ const CommentAdder = ({ article_id, setComments }) => {
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
       ></textarea>
-      <button type="submit">Add comment</button>
+      <button type="submit" disabled={newComment.length === 0}>Add comment</button>
     </form>
   );
 };
