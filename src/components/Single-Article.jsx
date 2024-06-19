@@ -1,10 +1,11 @@
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
+import CommentAdder from "./comment-adder";
 import {
   fetchArticleById,
   fetchCommentsForArticle,
   sendVoteByArticleId,
-  removeVoteByArticleId
+  removeVoteByArticleId,
 } from "../utils/api";
 import styles from "../SingleArticle.module.css";
 
@@ -38,16 +39,13 @@ const SingleArticle = (props) => {
     });
   }
 
-  function handleDownVote(){
-
+  function handleDownVote() {
     setVotes((votes) => votes - 1);
     setErr(null);
     removeVoteByArticleId(article_id).catch((err) => {
       setVotes((votes) => votes + 1);
       setErr("Something went wrong ): please try again.");
     });
-
-
   }
 
   return (
@@ -62,6 +60,7 @@ const SingleArticle = (props) => {
       <h2>Votes: {votes}</h2>
       <button onClick={handleClick}>UpVote</button>
       <button onClick={handleDownVote}>DownVote</button>
+      <CommentAdder setComments={setComments} article_id={article_id} />
       <h2>Comments</h2>
       <ul className={styles.Comment_list}>
         {comments.map((comment) => (

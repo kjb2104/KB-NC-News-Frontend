@@ -9,7 +9,6 @@ import {useEffect, useState} from "react"
     useEffect(() => {
         setIsLoading(true)
         getUsers().then(({users}) => {
-            console.log(users)
             setUsers(users)
             setIsLoading(false)
     }) }, [])

@@ -1,19 +1,16 @@
 import { useContext } from "react";
 
+import { UserContext } from "./UserContext";
 
-function Header(){
+function Header() {
+  const { user } = useContext(UserContext);
 
-
-return(
+  return (
     <div className="Header">
-        <h1>Newsbase</h1>
-        <p>Logged in as ...</p>
+      <h1>Newsbase</h1>
+      <p>Logged in as {user.name}</p>
     </div>
-)
-
-
+  );
 }
 
-export default Header
-
-
+export default Header;

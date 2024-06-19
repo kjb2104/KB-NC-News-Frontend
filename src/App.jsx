@@ -7,6 +7,7 @@ import SingleArticle from './components/Single-Article'
 import Users from './components/users'
 import Topics from './components/topics'
 import Header from './components/Header'
+import { UserProvider } from './components/UserContext'
 import './App.css'
 
 
@@ -15,11 +16,12 @@ import './App.css'
 
 function App() {
 
+  const user = ''
   return (
    
       <main className='App'>
-        
-        <Header />
+        <UserProvider>
+        <Header user={user}/>
         <Nav/>
         <Routes>
           <Route path='/'/>
@@ -28,6 +30,7 @@ function App() {
           <Route path='/users' element={<Users/>}/>
           <Route path='/topics' element={<Topics/>}/>
         </Routes>
+        </UserProvider>
       </main>
   )
 }
