@@ -75,6 +75,17 @@ const postCommentByArticleId = (article_id, body) => {
     });
 };
 
+const removeComment = (comment_id) => {
+    return axios
+      .delete(
+        `https://newsbase.onrender.com/api/comments/${comment_id}`,
+      )
+      .then((res) => {
+        console.log(res)
+        return res;
+      });
+  };
+
 export {
   getArticles,
   getUsers,
@@ -84,4 +95,5 @@ export {
   sendVoteByArticleId,
   removeVoteByArticleId,
   postCommentByArticleId,
+  removeComment,
 };
