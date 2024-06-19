@@ -9,12 +9,6 @@ import {
 } from "../utils/api";
 import styles from "../SingleArticle.module.css";
 
-// import { useContext } from "react";
-
-// import { UserContext } from "./UserContext";
-
-// const { user } = useContext(UserContext)
-
 const SingleArticle = (props) => {
   const [article, setArticle] = useState([]);
   const [comments, setComments] = useState([]);
@@ -45,16 +39,13 @@ const SingleArticle = (props) => {
     });
   }
 
-  function handleDownVote(){
-
+  function handleDownVote() {
     setVotes((votes) => votes - 1);
     setErr(null);
     removeVoteByArticleId(article_id).catch((err) => {
       setVotes((votes) => votes + 1);
       setErr("Something went wrong ): please try again.");
     });
-
-
   }
 
   return (
@@ -69,6 +60,7 @@ const SingleArticle = (props) => {
       <h2>Votes: {votes}</h2>
       <button onClick={handleClick}>UpVote</button>
       <button onClick={handleDownVote}>DownVote</button>
+      <CommentAdder setComments={setComments} article_id={article_id} />
       <h2>Comments</h2>
       <ul className={styles.Comment_list}>
         {comments.map((comment) => (
@@ -80,7 +72,6 @@ const SingleArticle = (props) => {
           </li>
         ))}
       </ul>
-      <CommentAdder setComments={setComments}/>
     </div>
   );
 };
