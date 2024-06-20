@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const getArticles = () => {
-  return axios.get("https://newsbase.onrender.com/api/articles").then((res) => {
+const getArticles = (topic) => {
+  return axios.get("https://newsbase.onrender.com/api/articles", {params: {topic: topic}}).then((res) => {
+    console.log(res)
     return res.data;
   });
 };
@@ -81,7 +82,7 @@ const removeComment = (comment_id) => {
         `https://newsbase.onrender.com/api/comments/${comment_id}`,
       )
       .then((res) => {
-        console.log(res)
+    
         return res;
       });
   };

@@ -1,5 +1,4 @@
-import { useState, useEffect } from 'react'
-import axios from 'axios'
+
 import { Routes, Route, BrowserRouter } from 'react-router-dom'
 import Nav from './components/Nav'
 import Articles from './components/Articles'

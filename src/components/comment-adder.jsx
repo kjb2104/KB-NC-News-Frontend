@@ -6,9 +6,9 @@ import { useContext } from "react";
 
 import { UserContext } from "./UserContext";
 
-const CommentAdder = ({ article_id, setComments }) => {
+const CommentAdder = ({ article_id, setComments, comments }) => {
   const [newComment, setNewComment] = useState("");
-
+  const [err, setErr] = useState(null);
   const { user } = useContext(UserContext);
 
   let date = new Date().toJSON();
@@ -23,14 +23,37 @@ const CommentAdder = ({ article_id, setComments }) => {
       created_at: date,
     };
 
-    postCommentByArticleId(article_id, body).then((newCommentFromApi) => {
-      setNewComment("");
+    if(newComment !== comments[0].body){
 
-      setComments((comments) => {
-        return [newCommentFromApi, ...comments];
-      });
+    setComments((comments) => {
+      return [body, ...comments];
     });
-  };
+
+    setNewComment("");
+    postCommentByArticleId(article_id, body)
+      .then((newCommentFromApi) => {
+        setComments((comments) => {
+          comments.shift();
+          return [newCommentFromApi, ...comments];
+        });
+        alert("Succesfully added comment :)");
+      })
+      .catch((err) => {
+        setComments((comments) => {
+          comments.shift();
+          return [...comments];
+        });
+        setErr(err);
+        alert(`Something went wrong ): ${err.msg}`);
+      });
+    }
+
+    else {
+        setNewComment("")
+alert('You already posted this!')
+    }
+  
+  }
 
   return (
     <form className="Comment_Adder" onSubmit={handleSubmit}>
@@ -41,7 +64,9 @@ const CommentAdder = ({ article_id, setComments }) => {
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
       ></textarea>
-      <button type="submit">Add comment</button>
+      <button type="submit" disabled={newComment.length === 0}>
+        Add comment
+      </button>
     </form>
   );
 };

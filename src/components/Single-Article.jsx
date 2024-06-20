@@ -69,6 +69,11 @@ let comment_id = Number(text.slice(-3))
 
 
     removeComment(comment_id).then((result) =>{ if (result) { 
+      const filteredComments =  comments.filter((commentToDelete) => { 
+        return commentToDelete.comment_id !== comment_id
+      }); 
+  
+      setComments([...filteredComments])
       alert("Succesfully deleted comment :)");
     } 
   }).catch((err) => { 
@@ -76,13 +81,6 @@ let comment_id = Number(text.slice(-3))
   }); 
 
 
-    const filteredComments =  comments.filter((commentToDelete) => { 
-      return commentToDelete.comment_id !== comment_id
-    }); 
-
-    setComments([...filteredComments])
-
-    
   }
 
   return (
@@ -97,7 +95,7 @@ let comment_id = Number(text.slice(-3))
       <h2>Votes: {votes}</h2>
       <button onClick={handleClick}>UpVote</button>
       <button onClick={handleDownVote}>DownVote</button>
-      <CommentAdder setComments={setComments} article_id={article_id} />
+      <CommentAdder setComments={setComments} article_id={article_id} comments={comments}/>
       
       <h2>Comments</h2>
       <ul className={styles.Comment_list}>
