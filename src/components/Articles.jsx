@@ -1,7 +1,6 @@
 import {useEffect, useState} from "react"
 import  { getArticles } from "../utils/api";
-import { useParams } from 'react-router-dom';
-import SingleArticle from "./Single-Article";
+import { useSearchParams } from 'react-router-dom';
 import { Link } from 'react-router-dom'
 import styles from '../Articles.module.css'
 
@@ -9,14 +8,18 @@ const Articles = () => {
 
     const [isLoading, setIsLoading] = useState(false)
     const [articles, setArticles] = useState([])
-    const { article_id } = useParams()
+    let [searchParams, setSearchParams] = useSearchParams('');
+
+const topicQuery = searchParams.get("topic")
+
+
 
 useEffect(() => {
     setIsLoading(true)
-    getArticles().then(({articles}) => {
+    getArticles(topicQuery).then(({articles}) => {
         setArticles(articles)
         setIsLoading(false)
-}) }, [])
+}) }, [topicQuery])
 
 
 if(isLoading){

@@ -1,7 +1,8 @@
 import axios from "axios";
 
-const getArticles = () => {
-  return axios.get("https://newsbase.onrender.com/api/articles").then((res) => {
+const getArticles = (topic) => {
+  return axios.get("https://newsbase.onrender.com/api/articles", {params: {topic: topic}}).then((res) => {
+    console.log(res)
     return res.data;
   });
 };

@@ -95,7 +95,7 @@ let comment_id = Number(text.slice(-3))
       <h2>Votes: {votes}</h2>
       <button onClick={handleClick}>UpVote</button>
       <button onClick={handleDownVote}>DownVote</button>
-      <CommentAdder setComments={setComments} article_id={article_id} />
+      <CommentAdder setComments={setComments} article_id={article_id} comments={comments}/>
       
       <h2>Comments</h2>
       <ul className={styles.Comment_list}>
