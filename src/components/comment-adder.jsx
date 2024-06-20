@@ -9,12 +9,15 @@ import { UserContext } from "./UserContext";
 const CommentAdder = ({ article_id, setComments, comments }) => {
   const [newComment, setNewComment] = useState("");
   const [err, setErr] = useState(null);
+  const [hasPosted, setHasPosted] = useState(false)
   const { user } = useContext(UserContext);
 
   let date = new Date().toJSON();
 
   const handleSubmit = (event) => {
     event.preventDefault();
+    
+    setHasPosted(true)
 
     const body = {
       body: newComment,
@@ -37,6 +40,7 @@ const CommentAdder = ({ article_id, setComments, comments }) => {
           return [newCommentFromApi, ...comments];
         });
         alert("Succesfully added comment :)");
+        setHasPosted(false)
       })
       .catch((err) => {
         setComments((comments) => {
@@ -50,6 +54,7 @@ const CommentAdder = ({ article_id, setComments, comments }) => {
 
     else {
         setNewComment("")
+        setHasPosted(false)
 alert('You already posted this!')
     }
   
@@ -64,7 +69,7 @@ alert('You already posted this!')
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
       ></textarea>
-      <button type="submit" disabled={newComment.length === 0}>
+      <button type="submit" disabled={hasPosted}>
         Add comment
       </button>
     </form>
