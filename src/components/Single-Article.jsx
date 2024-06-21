@@ -9,7 +9,7 @@ import {
   removeComment
 } from "../utils/api";
 import { useContext } from "react";
-
+import ErrorComponent from "./error-component";
 import { UserContext } from "./UserContext";
 import styles from "../SingleArticle.module.css";
 
@@ -17,30 +17,46 @@ const SingleArticle = (props) => {
   const [article, setArticle] = useState([]);
   const [comments, setComments] = useState([]);
   const [loading, setIsLoading] = useState(false)
-  const [votes, setVotes] = useState(0);
   const [err, setErr] = useState(null);
+  const [votes, setVotes] = useState(0);
+ 
 
   const { article_id } = useParams();
   const { user } = useContext(UserContext);
 
+
   useEffect(() => {
+
     setIsLoading(true)
+
     fetchArticleById(article_id).then((articleData) => {
       setArticle(articleData);
       setVotes(articleData.votes);
       setIsLoading(false)
-    });
+    }).catch((err)=>{
+      setErr(err.msg)
+      setIsLoading(false)
+    })
   }, [article_id]);
+
+
 
   useEffect(() => {
     fetchCommentsForArticle(article_id).then((commentData) => {
       setComments(commentData);
-    });
+    }).catch((err)=>{
+      setErr(err.msg)
+      setIsLoading(false)
+    })
   }, [article_id]);
 
 
   if(loading){
     return <p className="Loading">Loading...</p>
+}
+
+if (err) {
+  return <ErrorComponent message={err} />;
 }
 
   function handleClick() {
@@ -76,11 +92,16 @@ let comment_id = Number(text.slice(-3))
       setComments([...filteredComments])
       alert("Succesfully deleted comment :)");
     } 
-  }).catch((err) => { 
+  }).catch((err) => {
+    setErr(err)
     alert("Something went wrong ):, please try again.") 
   }); 
 
 
+  }
+
+  if (err) {
+    return <ErrorComponent message={err} />;
   }
 
   return (

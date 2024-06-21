@@ -5,12 +5,15 @@ import {useEffect, useState} from "react"
 
         const [isLoading, setIsLoading] = useState(false)
         const [users, setUsers] = useState([])
+        const [err, setErr] = useState(null)
     
     useEffect(() => {
         setIsLoading(true)
         getUsers().then(({users}) => {
             setUsers(users)
             setIsLoading(false)
+    }).catch((err)=>{
+        setErr(err)
     }) }, [])
     
 
@@ -19,6 +22,9 @@ import {useEffect, useState} from "react"
     }
 
 
+    if (err) {
+        return <ErrorComponent message={err} />;
+      }
     return (
         <ol className="User_list">
             {users.map((user) => (
