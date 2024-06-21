@@ -6,6 +6,8 @@ import { useContext } from "react";
 
 import { UserContext } from "./UserContext";
 
+import ErrorComponent from "./error-component";
+
 const CommentAdder = ({ article_id, setComments, comments }) => {
   const [newComment, setNewComment] = useState("");
   const [err, setErr] = useState(null);
@@ -48,6 +50,7 @@ const CommentAdder = ({ article_id, setComments, comments }) => {
           return [...comments];
         });
         setErr(err);
+        setHasPosted(false)
         alert(`Something went wrong ): ${err.msg}`);
       });
     }
@@ -60,6 +63,7 @@ alert('You already posted this!')
   
   }
 
+
   return (
     <form className="Comment_Adder" onSubmit={handleSubmit}>
       <label htmlFor="newComment">Add Comment</label>
@@ -69,7 +73,7 @@ alert('You already posted this!')
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
       ></textarea>
-      <button type="submit" disabled={hasPosted}>
+      <button type="submit" disabled={newComment.length === 0 || hasPosted}>
         Add comment
       </button>
     </form>

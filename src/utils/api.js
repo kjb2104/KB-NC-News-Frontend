@@ -1,24 +1,33 @@
 import axios from "axios";
 
+
+
 const getArticles = (topic) => {
   return axios.get("https://newsbase.onrender.com/api/articles", {params: {topic: topic}}).then((res) => {
     return res.data;
-  });
+  }).catch((err)=>{
+    return Promise.reject(err.response.data)
+  })
 };
 
 const fetchArticleById = (article_id) => {
   return axios
     .get(`https://newsbase.onrender.com/api/articles/${article_id}`)
     .then((res) => {
-      return res.data.article;
-    });
+      return res.data.article
+    }).catch((err)=>{
+            return Promise.reject(err.response.data)
+    })
 };
+
 const fetchCommentsForArticle = (article_id) => {
   return axios
     .get(`https://newsbase.onrender.com/api/articles/${article_id}/comments`)
     .then((res) => {
       return res.data.comments;
-    });
+    }).catch((err)=>{
+        return Promise.reject(err.response.data)
+    })
 };
 
 const getUsers = () => {
@@ -42,7 +51,7 @@ const sendVoteByArticleId = (article_id) => {
     )
     .then((res) => {
       return res;
-    });
+    })
 };
 const removeVoteByArticleId = (article_id) => {
   const patchBody = { inc_votes: -1 };
@@ -72,7 +81,9 @@ const postCommentByArticleId = (article_id, body) => {
     )
     .then((res) => {
       return res.data.comment;
-    });
+    }).catch((err)=>{
+        return Promise.reject(err.response.data)
+    })
 };
 
 const removeComment = (comment_id) => {

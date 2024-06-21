@@ -1,28 +1,37 @@
 import { useEffect, useState } from "react";
 import { getArticles } from "../utils/api";
-import { useSearchParams } from "react-router-dom";
+import { useSearchParams, useParams } from "react-router-dom";
 import { Link } from "react-router-dom";
+import ErrorComponent from "./error-component";
 import styles from "../Articles.module.css";
 
 const Articles = () => {
   const [isLoading, setIsLoading] = useState(false);
   const [articles, setArticles] = useState([]);
-  let [searchParams, setSearchParams] = useSearchParams("");
+  const [err, setErr] = useState(null)
+  let [searchParams, setSearchParams] = useSearchParams();
 
-  const topicQuery = searchParams.get("topic");
-
+  const topicQuery = searchParams.get("topic")
 
   useEffect(() => {
     setIsLoading(true);
     getArticles(topicQuery).then(({ articles }) => {
       setArticles(articles);
       setIsLoading(false);
-    });
+    }).catch((err) => {
+        setErr(err.msg)
+        setIsLoading(false)}
+      )
   }, [topicQuery]);
 
 
   if (isLoading) {
     return <p className="Loading">Loading...</p>;
+  }
+
+
+  if (err) {
+    return <ErrorComponent message={err} />;
   }
 
   const sortByOldest = () => {
@@ -86,7 +95,6 @@ const Articles = () => {
 
     setArticles(newArticles);
   };
-
 
 
   return (
