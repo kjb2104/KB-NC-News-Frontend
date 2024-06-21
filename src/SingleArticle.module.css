@@ -9,7 +9,7 @@
   .main{
 
     color: hotpink;
-    background-color: rgb(98, 100, 90);
+    background-color: black;
     display: grid;
     grid-template-columns: 100%;
     grid-template-rows: min-content auto auto;
@@ -44,5 +44,31 @@
 height: auto;
   border-radius: 8px;
 
+}
+
+.upvote{
+  width: 10%;
+  background-color: #c74fb9; /* Green */
+  border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px
+}
+
+.downvote{
+  width: 10%;
+  background-color: black;
+  border: none;
+  color:pink;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  border-radius: 12px
 }
 

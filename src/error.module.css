@@ -1,8 +1,7 @@
-
 * {
     padding: 2;
     margin: 2;
     box-sizing: border-box;
+    color: hotpink;
     font-family: 'Arial';
-    background-image: url("paper.gif")
   }

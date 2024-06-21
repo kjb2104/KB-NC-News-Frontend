@@ -1,0 +1,22 @@
+* {
+    padding: 2;
+    margin: 2;
+    box-sizing: border-box;
+    font-family: 'Arial';
+    color: hotpink;
+  }
+
+  .user{
+    border: 1px solid black;
+    text-align: center;
+    vertical-align: baseline;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  background-color: black;
+  }

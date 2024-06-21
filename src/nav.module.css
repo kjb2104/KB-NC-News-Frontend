@@ -1,0 +1,46 @@
+* {
+    padding: 2;
+    margin: 2;
+    box-sizing: border-box;
+    font-family: 'Arial';
+    color: hotpink;
+  }
+
+  .nav{
+    display: block;
+  padding: 8px;
+  background-color: #b33475;
+  }
+
+  ul{
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    border: 1px solid rgb(136, 19, 19);
+    text-align: center;
+    vertical-align: baseline;
+    margin-top: 100px;
+    margin-bottom: 100px;
+    margin-right: 150px;
+    margin-left: 80px;
+    padding-top: 50px;
+  padding-right: 30px;
+  padding-bottom: 50px;
+  padding-left: 80px;
+  background-color: black;
+
+  }
+
+
+    li {
+      display: inline-block;
+      font-size: 20px;
+      padding: 20px;
+    }
+  
+
+
+  
+  li a:hover {
+    background-color: #111;
+  }

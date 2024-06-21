@@ -3,7 +3,7 @@ import Articles from './Articles'
 import Topics from './topics'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
-
+import styles from "../nav.module.css";
 
 const Nav = () => {
 

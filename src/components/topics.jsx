@@ -2,7 +2,7 @@ import {useEffect, useState} from "react"
 import  { getTopics } from "../utils/api"
 import ErrorComponent from "./error-component";
 import { Link } from "react-router-dom"
-
+import styles from "../topics.module.css";
 
 const Topics = () => {
 
@@ -30,7 +30,8 @@ if (err) {
   }
 
 return (
-    <ol className="Topic_list">
+    <ol className={styles.Topic_list}>
+        <h1>Current topics:</h1>
         {topics.map((topic) => (
             <li key={topic.slug}>
                 <Link to={`/articles?topic=${topic.slug}`}><p>{topic.slug}</p></Link>

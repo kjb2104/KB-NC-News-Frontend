@@ -112,13 +112,17 @@ let comment_id = Number(text.slice(-3))
       <p>Author: {article.author}</p>
       <p>{article.body}</p>
       <img className={styles.img} src={article.article_img_url} />
+      <section>
       <p>Comments: {article.comment_count}</p>
       <h2>Votes: {votes}</h2>
-      <button onClick={handleClick}>UpVote</button>
-      <button onClick={handleDownVote}>DownVote</button>
-      <CommentAdder setComments={setComments} article_id={article_id} comments={comments}/>
+      <button className={styles.upvote} onClick={handleClick}>UpVote</button>
+      <button className={styles.downvote}onClick={handleDownVote}>DownVote</button>
+      <br/>
+      </section>
+    
       
       <h2>Comments</h2>
+      <CommentAdder setComments={setComments} article_id={article_id} comments={comments}/>
       <ul className={styles.Comment_list}>
 
         {comments.map((comment) => {

@@ -8,6 +8,8 @@ import { UserContext } from "./UserContext";
 
 import ErrorComponent from "./error-component";
 
+import styles from "../commentadder.module.css";
+
 const CommentAdder = ({ article_id, setComments, comments }) => {
   const [newComment, setNewComment] = useState("");
   const [err, setErr] = useState(null);
@@ -65,15 +67,18 @@ alert('You already posted this!')
 
 
   return (
-    <form className="Comment_Adder" onSubmit={handleSubmit}>
-      <label htmlFor="newComment">Add Comment</label>
+    <form className={styles.Comment_Adder} onSubmit={handleSubmit}>
+      <label className={styles.label}htmlFor="newComment">Post Comment</label>
+      <br/>
       <textarea
         id="newComment"
+        className={styles.newComment}
         multiline="true"
         value={newComment}
         onChange={(e) => setNewComment(e.target.value)}
       ></textarea>
-      <button type="submit" disabled={newComment.length === 0 || hasPosted}>
+      <br/>
+      <button className={styles.submit} type="submit" disabled={newComment.length === 0 || hasPosted}>
         Add comment
       </button>
     </form>

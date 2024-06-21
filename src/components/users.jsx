@@ -1,11 +1,15 @@
 import { getUsers } from "../utils/api"
-import {useEffect, useState} from "react"
+import {useEffect, useState, useContext} from "react"
+import styles from "../useres.module.css";
+import { UserContext } from "./UserContext";
 
     const Users = () => {
 
         const [isLoading, setIsLoading] = useState(false)
         const [users, setUsers] = useState([])
         const [err, setErr] = useState(null)
+
+        const {user} = useContext(UserContext)
     
     useEffect(() => {
         setIsLoading(true)
@@ -26,7 +30,8 @@ import {useEffect, useState} from "react"
         return <ErrorComponent message={err} />;
       }
     return (
-        <ol className="User_list">
+        <ol className={styles.User_list}>
+            <h1>You are logged in as {user.username}</h1>
             {users.map((user) => (
                 <li key={user.username}>
                     <h1>{user.username}</h1>

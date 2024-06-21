@@ -99,43 +99,43 @@ const Articles = () => {
 
   return (
       <div>
-        <label className="Sort by">
-          Sort By -
-        </label>
+        <section className={styles.Sortby}>
+          <h1>All articles ordered by recency</h1>
+          <p>Sort by:</p>
         <button
-          className="sort-button"
+          className={styles.sortbutton}
           onClick={() => sortByUpvotes('vote')}
         >
          Most Upvoted
         </button>
         <button
-          className="sort-button"
+          className={styles.sortbutton}
           onClick={() => sortByOldest('oldest')}>
             Oldest to Newest 
           </button>
           <button
-          className="sort-button"
+          className={styles.sortbutton}
           onClick={() => sortByNewest('newest')}>
             Newest to Oldest 
           </button>
           <button
-          className="sort-button"
+          className={styles.sortbutton}
           onClick={() => sortByComments('comment_count')}>
             Most Comments
           </button>
+          </section>
 
 
       <ul className={styles.Article_list}>
         {articles.map((article) => (
           <li key={article.article_id}>
-            <h1>Click to Read:</h1>
             <Link to={"/articles/" + article.article_id}>
-              <p>{article.title}</p>
+              <p className={styles.link}>{article.title}</p>
             </Link>
             <p>Topic: {article.topic}</p>
             <p>Author: {article.author}</p>
             <p>Date: {article.created_at}</p>
-            <p>Comment Count:{article.comment_count}</p>
+            <p>Comment Count: {article.comment_count}</p>
             <p>Votes: {article.votes}</p>
           </li>
         ))}
