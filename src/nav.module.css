@@ -4,12 +4,14 @@
     box-sizing: border-box;
     font-family: 'Arial';
     color: hotpink;
+    background-color: black;
   }
 
-  .nav{
+  .Nav{
     display: block;
   padding: 8px;
-  background-color: #b33475;
+  color:hotpink;
+  background-color: black;
   }
 
   ul{
@@ -36,12 +38,12 @@
       display: inline-block;
       font-size: 20px;
       padding: 20px;
-
+      color: hotpink;
     }
   
 
 
   
   li a:hover {
-    background-color: #111;
+    background-color: peachpuff;
   }

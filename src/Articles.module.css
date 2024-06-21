@@ -1,11 +1,14 @@
 
 .Article_list{
 
-    color: hotpink;
-    display: grid;
-    grid-template-columns: 100%;
-    grid-template-rows: min-content auto auto;
-    background-color: black;
+  color: hotpink;
+  background-color: black;
+  display: grid;
+  grid-template-columns: 100%;
+  grid-template-rows: min-content auto auto;
+  text-align:center;
+  padding: 2rem;
+  margin: 1rem;
 }
 .header{
 
