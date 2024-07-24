@@ -1,6 +1,6 @@
 
 
-##Newsbase News Application
+# Newsbase News Application
 
 This website is a collective of news articles which gives the user the ability to access articles, post comments and update the api with up/down votes. It connects to a backend api which generates a series of endpoints connected to the database which provides the content of this website.
 
@@ -23,7 +23,7 @@ Node minimum requirements: node.js - 21.6.2
 
 ----------------------------------------------------------------------------------------------------------------------------------
 
-##Accessing Hosted App.
+## Accessing Hosted App
 
 The app has also been successfully hosted using Netlify.
 
