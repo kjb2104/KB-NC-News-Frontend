@@ -4,6 +4,7 @@ import Topics from './topics'
 import { Link } from 'react-router-dom'
 import axios from 'axios'
 import styles from "../nav.module.css";
+import image from "../assets/newsbase_logo.png"
 
 const Nav = () => {
 
@@ -23,6 +24,9 @@ return(
       </li>
       <li>
         <Link to="/topics">Topics</Link>
+      </li>
+      <li>
+      <img className={styles.img} src={image}/>
       </li>
     </ul>
   </nav>

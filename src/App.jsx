@@ -25,8 +25,8 @@ function App() {
    
       <main className='App'>
         <UserProvider>
-        <Header user={user}/>
         <Nav/>
+        <Header user={user}/>
         <Routes>
           <Route path='/' element={<Home/>} user={user}/>
           <Route path="*" element={<ErrorComponent/>} />

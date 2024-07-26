@@ -9,20 +9,29 @@
 
   .Nav{
     display: block;
-  padding: 8px;
+  padding: 4px;
   color:hotpink;
   background-color: black;
   }
+
+  .img{
+    display: inline-block;
+    width: 40%;
+    max-width: 50%;
+    padding: 4px;
+    vertical-align: -1em;
+    
+}
 
   ul{
     list-style-type: none;
     margin: 0;
     padding: 0;
-    border: 1px solid rgb(136, 19, 19);
+    border: 1px solid hotpink;
     text-align: center;
     vertical-align: baseline;
-    margin-top: 100px;
-    margin-bottom: 100px;
+    margin-top: 40px;
+    margin-bottom: 40px;
     margin-right: 150px;
     margin-left: 80px;
     padding-top: 50px;
