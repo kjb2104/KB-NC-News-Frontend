@@ -10,6 +10,7 @@ function Header() {
   return (
     <div className={styles.Header}>
       <h1 className={styles.Head}>Newsbase</h1>
+      <h2>Current articles on trending topics</h2>
       <p>Logged in as {user.name}</p>
     </div>
   );

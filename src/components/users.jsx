@@ -31,7 +31,8 @@ import { UserContext } from "./UserContext";
       }
     return (
         <ol className={styles.User_list}>
-            <h1>You are logged in as {user.username}</h1>
+            <h1>You are currentlylogged in as {user.username}</h1>
+            <h2>Our users:</h2>
             {users.map((user) => (
                 <li key={user.username}>
                     <h1>{user.username}</h1>
