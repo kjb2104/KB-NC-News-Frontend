@@ -2,7 +2,7 @@
 
 # Newsbase News Application
 
-This website is a collective of news articles which gives the user the ability to access articles, post comments and update the api with up/down votes. It connects to a backend api which generates a series of endpoints connected to the database which provides the content of this website.
+This website is a collective of news articles which gives the user the ability to access articles, post comments and update the api with up or down votes. The backend api generates a series of endpoints connected to the database which provides the content of this website.
 
 Instructions for installation:
 
@@ -25,10 +25,10 @@ Node minimum requirements: node.js - 21.6.2
 
 ## Accessing Hosted App
 
-The app has also been successfully hosted using Netlify.
+The app has been successfully hosted using Netlify.
 
 It can be accessed here:
-https://newsbase.netlify.app/
+https://gleeful-liger-916037.netlify.app/users
 
 To access the backend api which connects to this app see:
 
