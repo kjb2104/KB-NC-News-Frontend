@@ -31,7 +31,8 @@ if (err) {
 
 return (
     <ol className={styles.Topic_list}>
-        <h1>Current topics:</h1>
+        <h1>Click each topic to navigate to the selection of articles for that subject</h1>
+        <h2>Current topics:</h2>
         {topics.map((topic) => (
             <li key={topic.slug}>
                 <Link to={`/articles?topic=${topic.slug}`}><p>{topic.slug}</p></Link>

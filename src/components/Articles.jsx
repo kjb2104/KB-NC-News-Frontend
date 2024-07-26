@@ -100,7 +100,8 @@ const Articles = () => {
   return (
       <div>
         <section className={styles.Sortby}>
-          <h1>All articles ordered by recency</h1>
+          <h1><u>All articles ordered by recency</u></h1>
+          <h2>Click on the article title to navigate to it!</h2>
           <p>Sort by:</p>
         <button
           className={styles.sortbutton}
